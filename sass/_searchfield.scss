@@ -1,0 +1,22 @@
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.searchTerm {
+  width: 15%;
+  border: 3px solid #4caf50;
+  border-right: none;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: #4caf50;
+}

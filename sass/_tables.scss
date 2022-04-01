@@ -1,0 +1,39 @@
+/* Tablestyles Added from W3Schools */
+
+#currencyTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#currencyTable td,
+#currencyTable th {
+  border: 1px, 1px, 0px, 0px solid rgb(42, 36, 36);
+  padding: 8px;
+}
+
+#currencyTable tr:nth-child(even) {
+  background-color: #130e0e;
+}
+
+#currencyTable tr:hover {
+  background-color: rgb(31, 3, 3);
+}
+
+#currencyTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(52 171 125);
+  color: white;
+}
+
+.table-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.table-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
