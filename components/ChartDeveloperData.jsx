@@ -79,7 +79,7 @@ const ChartDeveloperData = ({ chartTitle, singleCryptoStats }) => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">{chartTitle}</h2>
         <Bar data={scoreMetrics} width={50} height={50} />

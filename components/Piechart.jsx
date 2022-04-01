@@ -54,7 +54,7 @@ const Piechart = ({ cryptos }) => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">
           Marktanteil in Relation zur aktuellen Coinauswahl - Absolute Zahlen

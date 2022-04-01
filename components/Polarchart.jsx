@@ -52,7 +52,7 @@ const Polarchart = ({ title, cryptos }) => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">{title}</h2>
         <Doughnut data={totalVolume} width={50} height={50} />

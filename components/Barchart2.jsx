@@ -49,7 +49,7 @@ const Barchart2 = ({ title, cryptos }) => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">{title} </h2>
         <Bar data={athChange} width={75} height={75} />

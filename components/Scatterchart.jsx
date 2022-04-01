@@ -52,7 +52,7 @@ const Scatterchart = ({ cryptos }) => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered"> Umlaufmenge</h2>
         <Bar data={circulatingSupply} width={50} height={50} />

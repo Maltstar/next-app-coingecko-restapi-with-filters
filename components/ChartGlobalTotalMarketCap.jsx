@@ -82,7 +82,7 @@ const ChartGlobalTotalMarketCap = () => {
   };
 
   return (
-    <div class="flex-item">
+    <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">MarketCap Global</h2>
         <Doughnut data={globalTotalMarketCap} width={50} height={50} />
