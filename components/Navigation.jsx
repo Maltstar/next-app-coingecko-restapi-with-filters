@@ -9,9 +9,6 @@ export default function Navigation() {
       <Link href="/analytics">
         <a>Analytics</a>
       </Link>
-      <Link href="/news">
-        <a>News</a>
-      </Link>
     </nav>
   );
 }
