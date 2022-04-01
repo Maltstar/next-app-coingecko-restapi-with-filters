@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Project Description
 
 The Project aims to gather some insights through visualizing CryptoData from (open) Coingecko Endpoints.
-More about the Coingecko- API: [Coingecko](https://www.coingecko.com/de/api/documentation?)
+More about the: [Coingecko-API](https://www.coingecko.com/de/api/documentation?)
 
 Data has been visualized via [Chartjs](https://www.chartjs.org/docs/latest/getting-started/installation.html)
 
