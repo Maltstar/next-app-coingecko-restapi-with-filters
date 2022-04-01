@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '@/components/Layout';
-import CoinsList2 from '@/components/CoinsList2';
 import ChartGlobalTotalMarketCap from '@/components/ChartGlobalTotalMarketCap';
 
 export default function coins({ globalData }) {
@@ -8,7 +7,6 @@ export default function coins({ globalData }) {
     <Layout title="CoinList">
       <div className="flex-container">
         <ChartGlobalTotalMarketCap />
-        {/* <CoinsList2 key={globalData.data} globalData={globalData} /> */}
       </div>
     </Layout>
   );
