@@ -8,15 +8,17 @@
 
 .searchTerm {
   width: 15%;
-  border: 3px solid #4caf50;
+  border: 1px solid white;
+  background-color: transparent;
+  border-top: none;
   border-right: none;
+  border-left: none;
   padding: 15px;
   height: 20px;
-  border-radius: 5px;
   outline: none;
-  color: #9dbfaf;
+  color: #e53170;
 }
 
 .searchTerm:focus {
-  color: #4caf50;
+  color: #e53170;
 }
