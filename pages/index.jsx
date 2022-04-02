@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Layout from '@/components/Layout';
-import SearchBar from '@/components/SearchBar';
+import SearchBar from '@/components/layout/SearchBar';
 import CoinsList from '@/components/CoinsList';
-import Piechart from '@/components/Piechart';
-import Scatterchart from '@/components/Scatterchart';
-import Barchart2 from '@/components/Barchart2';
-import Polarchart from '@/components/Polarchart';
+import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
+import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
+import BarchartAthChange from '@/components/charts/BarchartAthChange';
+import Polarchart from '@/components/charts/Polarchart';
 
 export default function Home({ coinsData }) {
   const [search, setSearch] = useState('');
@@ -26,13 +26,22 @@ export default function Home({ coinsData }) {
       <SearchBar type="text" placeholder="Search" onChange={searchList} />
       <CoinsList coinsData={filteredCoins} />
       <div className="flex-container">
-        <Piechart cryptos={filteredCoins} />
-        <Scatterchart cryptos={filteredCoins} />
+        <PiechartMarketCap
+          chartTitle="Marktkapitalisierung (Abs. Zahlen)"
+          cryptos={filteredCoins}
+        />
+        <BarchartCirculatingSupply
+          chartTitle="Umlaufmenge (Abs. Zahlen)"
+          cryptos={filteredCoins}
+        />
       </div>
       <div className="flex-container">
-        <Barchart2 title="ATH Veränderung in %" cryptos={filteredCoins} />
+        <BarchartAthChange
+          title="ATH Veränderung in %"
+          cryptos={filteredCoins}
+        />
         <Polarchart
-          title="Aktuelles Handelsvolumen - Absolute Zahlen"
+          title="Aktuelles Handelsvolumen (Abs. Zahlen)"
           cryptos={filteredCoins}
         />
       </div>

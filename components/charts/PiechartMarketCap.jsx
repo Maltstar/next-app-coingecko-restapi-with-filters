@@ -1,7 +1,7 @@
 import Chart from 'chart.js/auto';
 import { Pie, Doughnut } from 'react-chartjs-2';
 
-const Piechart = ({ cryptos }) => {
+const Piechart = ({ chartTitle, cryptos }) => {
   cryptos.forEach((book, index) => {
     //console.log(`i:${index}`, book.id);
   });
@@ -56,9 +56,7 @@ const Piechart = ({ cryptos }) => {
   return (
     <div className="flex-item">
       <div className="card">
-        <h2 className="text-centered">
-          Marktanteil in Relation zur aktuellen Coinauswahl - Absolute Zahlen
-        </h2>
+        <h2 className="text-centered">{chartTitle}</h2>
         <Doughnut data={donutData} width={50} height={50} />
       </div>
     </div>

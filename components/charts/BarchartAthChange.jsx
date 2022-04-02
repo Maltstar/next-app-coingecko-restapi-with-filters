@@ -1,7 +1,7 @@
 import Chart from 'chart.js/auto';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
-const Barchart2 = ({ title, cryptos }) => {
+const BarchartAthChange = ({ title, cryptos }) => {
   /*
   cryptos.forEach((value, index) => {
     console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
@@ -51,11 +51,11 @@ const Barchart2 = ({ title, cryptos }) => {
   return (
     <div className="flex-item">
       <div className="card">
-        <h2 className="text-centered">{title} </h2>
+        <h2 className="text-centered">{title}</h2>
         <Bar data={athChange} width={75} height={75} />
       </div>
     </div>
   );
 };
 
-export default Barchart2;
+export default BarchartAthChange;

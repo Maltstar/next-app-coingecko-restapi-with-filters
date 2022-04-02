@@ -1,7 +1,8 @@
 import Layout from '@/components/Layout';
-import PolarchartDetail from '@/components/PolarchartDetail';
-import ChartDeveloperData from '@/components/ChartDeveloperData';
+import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
+import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 
+// API Fetch Data for Single Coin
 export async function getServerSideProps(context) {
   const { id } = context.query;
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}
@@ -16,26 +17,20 @@ export async function getServerSideProps(context) {
 
 const Coindetails = ({ coin }) => {
   return (
-    <Layout title={coin.id}>
+    <Layout title={`${coin.id} | Genesis-Date: ${coin.genesis_date}`}>
       <div className="flex-container">
-        {/* <div className="singleview-card">
-          <h4>
-            <b>{coin.symbol}</b>
-          </h4>
-          <p>{coin.description.en}</p>
-        </div>
-         <div className="singleview-card">
-          <h4>
-            <b>Stats</b>
-          </h4>
-          <p>
-            Genesis Date: <b> {coin.genesis_date}</b>
-          </p>
-          <p>Offizielle Website: {coin.links.homepage}</p>
-        </div> */}
-        <PolarchartDetail chartTitle="General Score" singleCryptoStats={coin} />
+        <p>{coin.description.en}</p>
+        <ul>
+          <li>Offizielle Website: {coin.links.homepage}</li>
+        </ul>
+      </div>
+      <div className="flex-container">
+        <BarchartGeneralScore
+          chartTitle="General Score in %"
+          singleCryptoStats={coin}
+        />
         <ChartDeveloperData
-          chartTitle="Developer Stats"
+          chartTitle="Entwickler Statistik (Abs. Zahlen)"
           singleCryptoStats={coin}
         />
       </div>

@@ -1,7 +1,7 @@
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
-const ChartDeveloperData = ({ chartTitle, singleCryptoStats }) => {
+const PolarchartDetail = ({ chartTitle, singleCryptoStats }) => {
   /*   cryptos.forEach((book, index) => {
     //console.log(`i:${index}`, book.id);
   });
@@ -36,41 +36,30 @@ const ChartDeveloperData = ({ chartTitle, singleCryptoStats }) => {
     currencySymbols.push(coin.symbol);
     scoreMetricsArray.push(coin.coingecko_score);
   }); */
-  //console.log(singleCryptoStats.developer_data.forks);
+  //console.log(singleCryptoStats.developer_score);
 
   const scoreMetrics = {
     labels: [''],
-
     datasets: [
       {
-        label: 'Forks',
-        data: [singleCryptoStats.developer_data.forks],
-        backgroundColor: '#f4a261',
+        label: 'coingecko_score',
+        data: [singleCryptoStats.coingecko_score],
+        backgroundColor: '#79addc',
       },
       {
-        label: 'Stars',
-        data: [singleCryptoStats.developer_data.stars],
-        backgroundColor: '#264653',
+        label: 'developer_score',
+        data: [singleCryptoStats.developer_score],
+        backgroundColor: '#ffc09f',
       },
       {
-        label: 'Subscribers',
-        data: [singleCryptoStats.developer_data.subscribers],
-        backgroundColor: '#2a9d8f',
+        label: 'community_score',
+        data: [singleCryptoStats.community_score],
+        backgroundColor: '#ffee93',
       },
       {
-        label: 'Issues(Total)',
-        data: [singleCryptoStats.developer_data.total_issues],
-        backgroundColor: '#e9c46a',
-      },
-      {
-        label: 'Issues(closed)',
-        data: [singleCryptoStats.developer_data.closed_issues],
-        backgroundColor: '#e76f51',
-      },
-      {
-        label: 'Merged Pullrequests',
-        data: [singleCryptoStats.developer_data.pull_requests_merged],
-        backgroundColor: '#d4e09b',
+        label: 'liquidity_score',
+        data: [singleCryptoStats.liquidity_score],
+        backgroundColor: '#fcf5c7',
       },
     ],
     options: {
@@ -88,4 +77,4 @@ const ChartDeveloperData = ({ chartTitle, singleCryptoStats }) => {
   );
 };
 
-export default ChartDeveloperData;
+export default PolarchartDetail;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@/components/Layout';
-import ChartGlobalTotalMarketCap from '@/components/ChartGlobalTotalMarketCap';
+import ChartGlobalTotalMarketCap from '@/components/charts/ChartGlobalTotalMarketCap';
 
 export default function coins({ globalData }) {
   return (

@@ -1,11 +1,8 @@
 import Chart from 'chart.js/auto';
 import { Bar, PolarArea, Doughnut } from 'react-chartjs-2';
 
-const Scatterchart = ({ cryptos }) => {
-  /*   cryptos.forEach((book, index) => {
-    //console.log(`i:${index}`, book.id);
-  });
-  cryptos.forEach((book, index) => {
+const CirculatingSupply = ({ chartTitle, cryptos }) => {
+  /* cryptos.forEach((value, index) => {
     console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
   }); */
 
@@ -32,17 +29,17 @@ const Scatterchart = ({ cryptos }) => {
     '#adf7b6',
   ];
 
-  cryptos.forEach((coin, index) => {
+  cryptos.forEach((coin) => {
     currencySymbols.push(coin.symbol);
     circSupArray.push(coin.circulating_supply);
   });
-
-  //console.log(currencySymbols.toString());
 
   // colors are from: https://coolors.co/palettes/trending
   const circulatingSupply = {
     type: 'bar',
     labels: currencySymbols,
+    borderColor: '#adf7b6',
+
     datasets: [
       {
         data: circSupArray,
@@ -54,11 +51,11 @@ const Scatterchart = ({ cryptos }) => {
   return (
     <div className="flex-item">
       <div className="card">
-        <h2 className="text-centered"> Umlaufmenge</h2>
+        <h2 className="text-centered">{chartTitle}</h2>
         <Bar data={circulatingSupply} width={50} height={50} />
       </div>
     </div>
   );
 };
 
-export default Scatterchart;
+export default CirculatingSupply;
