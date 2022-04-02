@@ -34,7 +34,7 @@ export default function CoinsList({ title, coinsData }) {
               {singleEntry.price_change_percentage_30d_in_currency.toFixed(2)}
             </td>
             <td>
-              <button id={singleEntry.id} className="custom-btn btn-15">
+              <button id={singleEntry.id} className="custom-btn btn-3">
                 <Link href={`/coindetails/${singleEntry.id.toLowerCase()}`}>
                   <a>Details</a>
                 </Link>
