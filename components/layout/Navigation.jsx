@@ -6,9 +6,9 @@ export default function Navigation() {
       <Link href="/">
         <a>Startseite</a>
       </Link>
-      <Link href="/analytics">
+      {/* <Link href="/analytics">
         <a>Analytics</a>
-      </Link>
+      </Link> */}
     </nav>
   );
 }

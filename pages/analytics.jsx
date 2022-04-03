@@ -4,9 +4,12 @@ import ChartGlobalTotalMarketCap from '@/components/charts/ChartGlobalTotalMarke
 
 export default function coins({ globalData }) {
   return (
-    <Layout title="CoinList">
+    <Layout title="Global Analytics: Top 10">
       <div className="flex-container">
-        <ChartGlobalTotalMarketCap />
+        <ChartGlobalTotalMarketCap
+          chartTitle="Absolute Marktkapitalisierung"
+          globalCryptoStats={globalData}
+        />
       </div>
     </Layout>
   );
