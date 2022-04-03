@@ -13,10 +13,18 @@ const LineChart = ({ chartTitle, priceChart }) => {
     // store unixTimeStamp to newDate object
     const dateObject = new Date(coin[0]);
 
+    const options = {
+      //weekday: 'long',
+      //year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    };
     //make it more readable with toLocaleString.
-    const humanDateFormat = dateObject.toLocaleString();
+    const readableDate = dateObject.toLocaleString('de-DE', options);
 
-    timeDateArray.push(humanDateFormat);
+    //console.log(date.toLocaleString('de-DE', options));
+
+    timeDateArray.push(readableDate);
     dailyPrice.push(coin[1]);
   });
 

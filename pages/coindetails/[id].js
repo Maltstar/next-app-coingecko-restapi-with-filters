@@ -32,19 +32,6 @@ const Coindetails = ({ coin, priceChart }) => {
 
   const prices = priceChart.prices;
   //console.log(prices);
-
-  // forEach: cycle through array and split values into two arraysS
-  const timeDateArray = [];
-  const dailyPrice = [];
-
-  prices.forEach((coin) => {
-    timeDateArray.push(coin[0]);
-    dailyPrice.push(coin[1]);
-    //circSupArray.push(coin.circulating_supply);
-  });
-
-  console.log(dailyPrice);
-
   //console.log(developerData);
 
   // tried purifying hrefs. doesnt work: https://linguinecode.com/post/complete-guide-react-dangerouslysetinnerhtml
