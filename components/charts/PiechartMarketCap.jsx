@@ -1,18 +1,10 @@
 import Chart from 'chart.js/auto';
-import { Pie, Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 const Piechart = ({ chartTitle, cryptos }) => {
-  cryptos.forEach((book, index) => {
-    //console.log(`i:${index}`, book.id);
-  });
-  cryptos.forEach((book, index) => {
-    //console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
-  });
-
-  /** Run Array Data from cryptos-prop through forEach and push data to ne   .Math.floor((number1 / number2) * 100);*/
+  /** Run Array Data from cryptos-prop through forEach and push data*/
   const currencySymbols = [];
   const marketCap = [];
-  const marketCapDominance = [];
   const colorArray = [
     '#f4a261',
     '#264653',
@@ -37,12 +29,10 @@ const Piechart = ({ chartTitle, cryptos }) => {
     //console.log(`marketcap_dominance:${index}`, coin.market_cap);
     currencySymbols.push(coin.symbol);
     marketCap.push(coin.market_cap);
-
-    marketCapDominance.push(coin.market_cap_dominance);
   });
 
   // colors are from: https://coolors.co/palettes/trending
-  const donutData = {
+  const marketCapDonut = {
     labels: currencySymbols,
     datasets: [
       {
@@ -57,7 +47,7 @@ const Piechart = ({ chartTitle, cryptos }) => {
     <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">{chartTitle}</h2>
-        <Doughnut data={donutData} width={50} height={50} />
+        <Doughnut data={marketCapDonut} width={50} height={50} />
       </div>
     </div>
   );

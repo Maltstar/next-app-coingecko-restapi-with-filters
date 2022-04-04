@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
 
   const res2 = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=14&interval=daily`
+    `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
   const data = await res.json();
 
@@ -61,7 +61,7 @@ const Coindetails = ({ coin, priceChart }) => {
       </div>
       <div className="flex-container">
         <LineChart14DayPrices
-          chartTitle="Preisentwicklung: 14 Tage"
+          chartTitle="Preisentwicklung: 30 Tage"
           priceChart={priceChart}
         />
       </div>

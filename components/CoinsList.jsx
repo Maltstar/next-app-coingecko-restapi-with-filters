@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
-import { getFormattedPrice } from '@/library/helpers';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import ReactPaginate from 'react-paginate';
 import Link from 'next/link';
 
-export default function CoinsList({ title, coinsData }) {
+export default function CoinsList({ coinsData }) {
+  //const router = useRouter();
+
+  // Pagination
+  // Triggers fetch for new page
+  /* const handlePagination = (page) => {
+    const path = router.pathname;
+    const query = router.query;
+    query.page = page.selected + 1;
+    router.push({
+      pathname: path,
+      query: query,
+    });
+  }; */
+
   return (
     <div className="table-card">
       <table id="currencyTable">
@@ -43,6 +58,16 @@ export default function CoinsList({ title, coinsData }) {
           </tr>
         ))}
       </table>
+      {/*  <ReactPaginate
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        previousLabel={'previous'}
+        nextLabel={'next'}
+        breakLabel={'...'}
+        initialPage={coinsData.curPage - 1}
+        pageCount={coinsData.maxPage}
+        onPageChange={handlePagination}
+      /> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Chart from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
-const Polarchart = ({ title, cryptos }) => {
+const DonutTradeVolume = ({ title, cryptos }) => {
   /*
   cryptos.forEach((value, index) => {
     console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
@@ -35,8 +35,6 @@ const Polarchart = ({ title, cryptos }) => {
     totalVolArray.push(coin.total_volume);
   });
 
-  //console.log(currencySymbols.toString());
-
   // colors are from: https://coolors.co/palettes/trending
   const totalVolume = {
     labels: currencySymbols,
@@ -61,4 +59,4 @@ const Polarchart = ({ title, cryptos }) => {
   );
 };
 
-export default Polarchart;
+export default DonutTradeVolume;

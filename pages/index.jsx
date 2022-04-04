@@ -6,7 +6,31 @@ import CoinsList from '@/components/CoinsList';
 import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
 import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
 import BarchartAthChange from '@/components/charts/BarchartAthChange';
-import Polarchart from '@/components/charts/Polarchart';
+import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
+
+// Call API Endpoint via ServerSideProps
+export const getServerSideProps = async ({ query }) => {
+  const page = query.page || 1; //first page is default
+  let coinsData = null;
+
+  try {
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/markets?&page=1&per_page=14&vs_currency=usd&order=market_cap_desc&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
+    );
+    if (res.status !== 200) {
+      throw new Error('Failed to fetch');
+    }
+    coinsData = await res.json();
+  } catch (err) {
+    coinsData = { error: { message: err.message } };
+  }
+
+  return {
+    props: {
+      coinsData,
+    },
+  };
+};
 
 export default function Home({ coinsData }) {
   const [search, setSearch] = useState('');
@@ -25,6 +49,7 @@ export default function Home({ coinsData }) {
     <Layout title="Crypto Metrics">
       <SearchBar type="text" placeholder="Search" onChange={searchList} />
       <CoinsList coinsData={filteredCoins} />
+
       <div className="flex-container">
         <PiechartMarketCap
           chartTitle="Marktkapitalisierung (Abs. Zahlen)"
@@ -40,7 +65,7 @@ export default function Home({ coinsData }) {
           title="ATH Veränderung in %"
           cryptos={filteredCoins}
         />
-        <Polarchart
+        <PiechartTradeVolume
           title="Aktuelles Handelsvolumen (Abs. Zahlen)"
           cryptos={filteredCoins}
         />
@@ -48,19 +73,3 @@ export default function Home({ coinsData }) {
     </Layout>
   );
 }
-
-// Call API Endpoint
-export const getServerSideProps = async () => {
-  const res = await fetch(
-    //'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=14&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
-  );
-
-  const coinsData = await res.json();
-
-  return {
-    props: {
-      coinsData,
-    },
-  };
-};

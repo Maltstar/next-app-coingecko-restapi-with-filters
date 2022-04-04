@@ -31,8 +31,6 @@ const LineChart = ({ chartTitle, priceChart }) => {
   const convertedDate = new Date(timeDateArray);
   console.log(convertedDate);
 
-  //console.log(currencySymbols.toString());
-
   // colors are from: https://coolors.co/palettes/trending
   const priceDevelopment = {
     labels: timeDateArray,
