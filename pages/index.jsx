@@ -10,7 +10,8 @@ import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
 
 // Call API Endpoint via ServerSideProps
 export const getServerSideProps = async ({ query }) => {
-  const page = query.page || 1; //first page is default
+  //first page is default
+  const page = query.page || 1;
   let coinsData = null;
 
   try {
