@@ -43,7 +43,10 @@ const Coindetails = ({ coin, priceChart }) => {
       }`}
     >
       <div className="flex-container">
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <div
+          className="spaced-text"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
         <ul>
           <li>Offizielle Website: {isHomepage ? isHomepage : 'Website N/A'}</li>
         </ul>
