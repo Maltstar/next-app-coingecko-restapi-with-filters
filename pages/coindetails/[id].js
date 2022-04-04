@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
 import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
-import LineChart14DayPrices from '@/components/charts/LineChart14DayPrices';
+import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
 import dompurify from 'dompurify';
 
 // API Fetch Data for Single Coin - general Stuff
@@ -60,7 +60,7 @@ const Coindetails = ({ coin, priceChart }) => {
         />
       </div>
       <div className="flex-container">
-        <LineChart14DayPrices
+        <LineChart30DayPrices
           chartTitle="Preisentwicklung: 30 Tage"
           priceChart={priceChart}
         />
