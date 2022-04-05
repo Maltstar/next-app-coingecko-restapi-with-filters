@@ -30,9 +30,12 @@ const Coindetails = ({ coin, priceChart }) => {
   const developerData = coin.developer_data;
   const isHomepage = coin.links.homepage;
 
+  // Sanitize String
+  const str = isHomepage.toString();
+  const isHomepageSanitized = str.substring(0, str.length - 2);
+  //console.log(str2);
+
   const prices = priceChart.prices;
-  //console.log(prices);
-  //console.log(developerData);
 
   // tried purifying hrefs. doesnt work: https://linguinecode.com/post/complete-guide-react-dangerouslysetinnerhtml
   //dangerouslySetInnerHTML={{ __html: sanitizer(description) }}
@@ -43,14 +46,22 @@ const Coindetails = ({ coin, priceChart }) => {
       }`}
     >
       <div className="flex-container">
-        <div
-          className="spaced-text"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
         <ul>
-          <li>Offizielle Website: {isHomepage ? isHomepage : 'Website N/A'}</li>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: description.replace(/href/g, "target='_blank' href"),
+            }}
+          />
+          <br />
+          <div>
+            Offizielle Website:{' '}
+            <a href={isHomepageSanitized ? isHomepageSanitized : 'Website N/A'}>
+              {isHomepageSanitized ? isHomepageSanitized : 'Website N/A'}
+            </a>
+          </div>
         </ul>
       </div>
+
       <div className="flex-container">
         <BarchartGeneralScore
           chartTitle="General Score in %"
