@@ -2,7 +2,6 @@ import Layout from '@/components/Layout';
 import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
 import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
-import dompurify from 'dompurify';
 
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
