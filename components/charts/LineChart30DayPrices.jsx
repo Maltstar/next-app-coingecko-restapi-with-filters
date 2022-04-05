@@ -29,7 +29,7 @@ const LineChart = ({ chartTitle, priceChart }) => {
   });
 
   const convertedDate = new Date(timeDateArray);
-  console.log(convertedDate);
+  //console.log(convertedDate);
 
   // colors are from: https://coolors.co/palettes/trending
   const priceDevelopment = {
@@ -38,7 +38,7 @@ const LineChart = ({ chartTitle, priceChart }) => {
       {
         label: 'Preisentwicklung',
         fill: false,
-        lineTension: 0.1,
+        lineTension: 0.05,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
         borderCapStyle: 'butt',

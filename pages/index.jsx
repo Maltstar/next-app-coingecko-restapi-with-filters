@@ -7,7 +7,6 @@ import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
 import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
 import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
-
 // Call API Endpoint via ServerSideProps
 /* export const getServerSideProps = async ({ query }) => {
   //first page is default
@@ -85,11 +84,13 @@ export default function Home() {
 
   return (
     <Layout title="Crypto Metrics">
-      <SearchBar type="text" placeholder="Search" onChange={searchList} />
-      Currency:{' '}
-      <button className="custom-btn btn-15" onClick={changeCurrency}>
-        {currency ? '€' : '$'}
-      </button>
+      <div className="flex-container">
+        <SearchBar type="text" placeholder="Search" onChange={searchList} />
+        <button className="custom-btn btn-15" onClick={changeCurrency}>
+          {currency ? '€' : '$'}
+        </button>
+      </div>
+
       <CoinsList coinsData={filteredCoins} />
       <div className="flex-container flex-align-right">
         <div>

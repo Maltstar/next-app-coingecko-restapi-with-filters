@@ -6,16 +6,18 @@ import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
   const { id } = context.query;
+
+  const baseUrl = 'https://api.coingecko.com/api/v3';
+
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
-  const data = await res.json();
   const res2 = await fetch(
     `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
-  const priceChart = await res2.json();
   const res3 = await fetch(
     `https://api.coingecko.com/api/v3/coins/bitcoin?market_data=true`
   );
-
+  const data = await res.json();
+  const priceChart = await res2.json();
   const priceChange = await res3.json();
   return {
     props: {
@@ -37,10 +39,6 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
   const price14Days = priceChange.market_data.price_change_percentage_14d;
   const price30Days = priceChange.market_data.price_change_percentage_30d;
 
-  console.log(price7Days);
-  console.log(price14Days);
-  console.log(price30Days);
-
   // Sanitize String
   const str = isHomepage.toString();
   const isHomepageSanitized = str.substring(0, str.length - 2);
@@ -55,8 +53,6 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
     >
       <div className="flex-container">
         <ul>
-          Preisveränderung: 7 Tage: {price7Days}% | 14 Tage: {price14Days}% | 30
-          Tage: {price30Days}%
           <div
             className="spaced-text"
             dangerouslySetInnerHTML={{
@@ -87,6 +83,15 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
           chartTitle="Entwickler Statistik (Abs. Zahlen)"
           singleCryptoStats={coin}
         />
+      </div>
+      <div className="flex-column">
+        <div className="simple-divider">
+          <h2 className="text-center">
+            {' '}
+            Preisveränderung: 7 Tage: {price7Days}% | 14 Tage: {price14Days}% |
+            30 Tage: {price30Days}%{' '}
+          </h2>
+        </div>
       </div>
       <div className="flex-container">
         <LineChart30DayPrices

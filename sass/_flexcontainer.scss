@@ -1,13 +1,13 @@
 .flex-container {
   display: flex;
   flex-direction: row;
-  /*background-color: DodgerBlue;*/
-}
-.flex-container > div {
-  //background-color: #f1f1f1;
   margin: 10px;
   padding: 20px;
+  //background-color: DodgerBlue;
+}
+.flex-container > div {
   font-size: 16px;
+  //background-color: DodgerBlue;
 }
 
 .flex-item {
@@ -17,4 +17,17 @@
 
 .flex-align-right {
   flex-direction: row-reverse;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-divider {
+  border-style: solid;
+  border-width: 0.01rem;
+  border-color: rgb(247, 242, 242);
+  border-left: none;
+  border-right: none;
 }
