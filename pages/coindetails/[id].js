@@ -24,7 +24,6 @@ export async function getServerSideProps(context) {
 
 const Coindetails = ({ coin, priceChart }) => {
   const description = coin.description.en;
-  const sanitizer = dompurify.sanitize;
   const isGenesisDate = coin.genesis_date;
   const developerData = coin.developer_data;
   const isHomepage = coin.links.homepage;
