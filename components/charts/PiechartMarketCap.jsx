@@ -5,6 +5,7 @@ const Piechart = ({ chartTitle, cryptos }) => {
   /** Run Array Data from cryptos-prop through forEach and push data*/
   const currencySymbols = [];
   const marketCap = [];
+  // colors are from: https://coolors.co/palettes/trending
   const colorArray = [
     '#f4a261',
     '#264653',
@@ -31,7 +32,6 @@ const Piechart = ({ chartTitle, cryptos }) => {
     marketCap.push(coin.market_cap);
   });
 
-  // colors are from: https://coolors.co/palettes/trending
   const marketCapDonut = {
     labels: currencySymbols,
     datasets: [
@@ -41,12 +41,6 @@ const Piechart = ({ chartTitle, cryptos }) => {
         hoverBackgroundColor: colorArray,
       },
     ],
-    options: {
-      title: {
-        display: true,
-        text: 'World Wide Wine Production',
-      },
-    },
   };
 
   return (

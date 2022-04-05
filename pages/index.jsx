@@ -39,7 +39,7 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [coinsData, setCryptos] = useState([]);
 
-  // Button Clicker
+  // States and Actions
   const initResults = 10;
   const initPage = 1;
   const initCurrency = 'eur';
@@ -91,7 +91,7 @@ export default function Home() {
         </button>
       </div>
 
-      <CoinsList coinsData={filteredCoins} />
+      <CoinsList coinsData={filteredCoins} currency={currency} />
       <div className="flex-container flex-align-right">
         <div>
           <button className="custom-btn btn-15" onClick={previousPage}>

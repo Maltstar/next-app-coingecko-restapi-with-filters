@@ -2,26 +2,24 @@ import Layout from '@/components/Layout';
 import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
 import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
+import RadarchartDetail from '@/components/charts/RadarchartGeneralScore';
 
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
   const { id } = context.query;
-
   const baseUrl = 'https://api.coingecko.com/api/v3';
 
-  const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
+  const res = await fetch(`${baseUrl}/coins/${id}`);
   const res2 = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
+    `${baseUrl}/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
-  const res3 = await fetch(
-    `https://api.coingecko.com/api/v3/coins/bitcoin?market_data=true`
-  );
-  const data = await res.json();
+  const res3 = await fetch(`${baseUrl}/coins/${id}?market_data=true`);
+  const coinMetrics = await res.json();
   const priceChart = await res2.json();
   const priceChange = await res3.json();
   return {
     props: {
-      coin: data,
+      coin: coinMetrics,
       priceChart: priceChart,
       priceChange: priceChange,
     },
@@ -84,6 +82,7 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
           singleCryptoStats={coin}
         />
       </div>
+
       <div className="flex-column">
         <div className="simple-divider">
           <h2 className="text-center">

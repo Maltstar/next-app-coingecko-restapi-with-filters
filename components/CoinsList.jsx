@@ -3,9 +3,11 @@ import { useRouter } from 'next/router';
 import ReactPaginate from 'react-paginate';
 import Link from 'next/link';
 import Chart from 'chart.js/auto';
+
+// ChartJS Modifications here. Apply globally
 Chart.defaults.color = 'rgba(75,192,192,1)';
 
-export default function CoinsList({ coinsData }) {
+export default function CoinsList({ coinsData, currency }) {
   //const router = useRouter();
 
   // Pagination
@@ -40,7 +42,9 @@ export default function CoinsList({ coinsData }) {
             </td>
             <td>{singleEntry.name}</td>
             <td>{singleEntry.symbol.toUpperCase()}</td>
-            <td>{singleEntry.current_price}</td>
+            <td>
+              {singleEntry.current_price} {currency ? '€' : '$'}
+            </td>
             {/*   <td>{singleEntry.price_change_percentage_24h_in_currency}</td>
             <td key={singleEntry.market_data}>
               {singleEntry.price_change_percentage_7d_in_currency}
