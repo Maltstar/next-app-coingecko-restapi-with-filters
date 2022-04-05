@@ -46,6 +46,7 @@ const Coindetails = ({ coin, priceChart }) => {
       <div className="flex-container">
         <ul>
           <div
+            className="spaced-text"
             dangerouslySetInnerHTML={{
               __html: description.replace(/href/g, "target='_blank' href"),
             }}
@@ -53,7 +54,11 @@ const Coindetails = ({ coin, priceChart }) => {
           <br />
           <div>
             Offizielle Website:{' '}
-            <a href={isHomepageSanitized ? isHomepageSanitized : 'Website N/A'}>
+            <a
+              href={isHomepageSanitized ? isHomepageSanitized : 'Website N/A'}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {isHomepageSanitized ? isHomepageSanitized : 'Website N/A'}
             </a>
           </div>
