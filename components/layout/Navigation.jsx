@@ -6,9 +6,9 @@ export default function Navigation() {
       <Link href="/">
         <a>Startseite</a>
       </Link>
-      {/* <Link href="/analytics">
-        <a>Analytics</a>
-      </Link> */}
+      <Link href="/paginated">
+        <a>Gridansicht</a>
+      </Link>
     </nav>
   );
 }

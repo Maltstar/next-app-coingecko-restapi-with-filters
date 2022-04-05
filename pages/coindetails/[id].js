@@ -7,36 +7,46 @@ import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
 export async function getServerSideProps(context) {
   const { id } = context.query;
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
-
+  const data = await res.json();
   const res2 = await fetch(
     `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
-  const data = await res.json();
-
   const priceChart = await res2.json();
+  const res3 = await fetch(
+    `https://api.coingecko.com/api/v3/coins/bitcoin?market_data=true`
+  );
+
+  const priceChange = await res3.json();
   return {
     props: {
       coin: data,
       priceChart: priceChart,
+      priceChange: priceChange,
     },
   };
 }
 
-const Coindetails = ({ coin, priceChart }) => {
+const Coindetails = ({ coin, priceChart, priceChange }) => {
   const description = coin.description.en;
   const isGenesisDate = coin.genesis_date;
   const developerData = coin.developer_data;
   const isHomepage = coin.links.homepage;
 
+  //Percentage Change in Percent
+  const price7Days = priceChange.market_data.price_change_percentage_7d;
+  const price14Days = priceChange.market_data.price_change_percentage_14d;
+  const price30Days = priceChange.market_data.price_change_percentage_30d;
+
+  console.log(price7Days);
+  console.log(price14Days);
+  console.log(price30Days);
+
   // Sanitize String
   const str = isHomepage.toString();
   const isHomepageSanitized = str.substring(0, str.length - 2);
-  //console.log(str2);
 
   const prices = priceChart.prices;
 
-  // tried purifying hrefs. doesnt work: https://linguinecode.com/post/complete-guide-react-dangerouslysetinnerhtml
-  //dangerouslySetInnerHTML={{ __html: sanitizer(description) }}
   return (
     <Layout
       title={`${coin.id} | Genesis-Date: ${
@@ -45,6 +55,8 @@ const Coindetails = ({ coin, priceChart }) => {
     >
       <div className="flex-container">
         <ul>
+          Preisveränderung: 7 Tage: {price7Days}% | 14 Tage: {price14Days}% | 30
+          Tage: {price30Days}%
           <div
             className="spaced-text"
             dangerouslySetInnerHTML={{

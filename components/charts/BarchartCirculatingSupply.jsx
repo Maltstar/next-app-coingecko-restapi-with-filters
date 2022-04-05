@@ -1,5 +1,5 @@
 import Chart from 'chart.js/auto';
-import { Bar, PolarArea, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
 
 const CirculatingSupply = ({ chartTitle, cryptos }) => {
   /* cryptos.forEach((value, index) => {
@@ -52,7 +52,7 @@ const CirculatingSupply = ({ chartTitle, cryptos }) => {
     <div className="flex-item">
       <div className="card">
         <h2 className="text-centered">{chartTitle}</h2>
-        <Bar data={circulatingSupply} width={50} height={50} />
+        <Doughnut data={circulatingSupply} width={50} height={50} />
       </div>
     </div>
   );

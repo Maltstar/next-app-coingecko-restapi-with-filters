@@ -41,6 +41,12 @@ const Piechart = ({ chartTitle, cryptos }) => {
         hoverBackgroundColor: colorArray,
       },
     ],
+    options: {
+      title: {
+        display: true,
+        text: 'World Wide Wine Production',
+      },
+    },
   };
 
   return (
