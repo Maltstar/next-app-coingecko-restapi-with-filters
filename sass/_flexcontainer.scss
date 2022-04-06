@@ -31,3 +31,11 @@
   border-left: none;
   border-right: none;
 }
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+    padding: 0px;
+    margin: 5px;
+  }
+}
