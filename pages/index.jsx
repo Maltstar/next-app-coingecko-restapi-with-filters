@@ -48,9 +48,8 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   // States and Actions
-  const initResults = 25;
+  const initResults = 10;
   const initPage = 1;
-
   const initCurrency = 'eur';
   const [count, setCount] = useState(initResults);
   const [page, setPage] = useState(initPage);
@@ -59,6 +58,9 @@ export default function Home() {
   const previousPage = () => setPage((currentCount) => currentCount - 1);
   const changeCurrency = () =>
     setCurrency((currentCurrency) => !currentCurrency);
+
+  const display15 = () => setCount((currentCount) => currentCount - 10);
+  const display25 = () => setCount(count + 10);
 
   // Call API Endpoint via useEffect
   useEffect(() => {
@@ -96,6 +98,12 @@ export default function Home() {
     <Layout title="Crypto Metrics">
       <div className="flex-container">
         <SearchBar type="text" placeholder="Search" onChange={searchList} />
+        <select value={count} onChange={(e) => setCount(e.target.value)}>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="25">25</option>
+          <option value="25">50</option>
+        </select>
         <button className="custom-btn btn-2" onClick={changeCurrency}>
           {currency ? <HiOutlineCurrencyEuro /> : <HiOutlineCurrencyDollar />}
         </button>
