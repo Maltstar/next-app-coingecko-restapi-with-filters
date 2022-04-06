@@ -6,6 +6,16 @@ import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
 import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
 import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import {
+  HiOutlineArrowNarrowLeft,
+  HiOutlineArrowNarrowRight,
+  HiOutlineCurrencyDollar,
+  HiOutlineCurrencyEuro,
+} from 'react-icons/hi';
+
+// Used Icons Library from https://react-icons.github.io/react-icons
+
 // Call API Endpoint via ServerSideProps
 /* export const getServerSideProps = async ({ query }) => {
   //first page is default
@@ -87,7 +97,7 @@ export default function Home() {
       <div className="flex-container">
         <SearchBar type="text" placeholder="Search" onChange={searchList} />
         <button className="custom-btn btn-2" onClick={changeCurrency}>
-          {currency ? '€' : '$'}
+          {currency ? <HiOutlineCurrencyEuro /> : <HiOutlineCurrencyDollar />}
         </button>
       </div>
 
@@ -96,12 +106,12 @@ export default function Home() {
         <div>
           {page > 1 && (
             <button className="custom-btn btn-2" onClick={previousPage}>
-              Previous
+              <HiOutlineArrowNarrowLeft />
             </button>
           )}
 
           <button className="custom-btn btn-2" onClick={nextPage}>
-            Next
+            <HiOutlineArrowNarrowRight />
           </button>
         </div>
       </div>
