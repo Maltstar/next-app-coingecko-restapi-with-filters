@@ -98,7 +98,11 @@ export default function Home() {
     <Layout title="Crypto Metrics">
       <div className="flex-container">
         <SearchBar type="text" placeholder="Search" onChange={searchList} />
-        <select value={count} onChange={(e) => setCount(e.target.value)}>
+        <select
+          className="custom-btn btn-2"
+          value={count}
+          onChange={(e) => setCount(e.target.value)}
+        >
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="25">25</option>
