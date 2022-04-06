@@ -15,6 +15,7 @@ export default function CoinsList({ coinsData, currency }) {
             <th>CurrencyName</th>
             <th>TickerSymbol</th>
             <th>Current Price</th>
+            <th>All-time High</th>
             <th>Optionen</th>
           </tr>
         </thead>
@@ -33,6 +34,9 @@ export default function CoinsList({ coinsData, currency }) {
               <td>{singleEntry.symbol.toUpperCase()}</td>
               <td>
                 {singleEntry.current_price} {currency ? '€' : '$'}
+              </td>
+              <td>
+                {singleEntry.ath} {currency ? '€' : '$'}
               </td>
 
               <td>
