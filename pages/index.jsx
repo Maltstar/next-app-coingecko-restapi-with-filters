@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import SearchBar from '@/components/layout/SearchBar';
@@ -53,10 +52,11 @@ export default function Home() {
 
   // Call API Endpoint via useEffect
   useEffect(() => {
+    const baseUrl = `https://api.coingecko.com/api/v3`;
     fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?&page=${page}&per_page=${count}&vs_currency=${
+      `${baseUrl}/coins/markets?&page=${page}&per_page=${count}&vs_currency=${
         currency ? 'eur' : 'usd'
-      }&order=market_cap_desc&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
+      }&order=market_cap_desc&sparkline=false`
     )
       .then((res) => res.json())
       .then(
@@ -86,7 +86,7 @@ export default function Home() {
     <Layout title="Crypto Metrics">
       <div className="flex-container">
         <SearchBar type="text" placeholder="Search" onChange={searchList} />
-        <button className="custom-btn btn-15" onClick={changeCurrency}>
+        <button className="custom-btn btn-2" onClick={changeCurrency}>
           {currency ? '€' : '$'}
         </button>
       </div>
@@ -94,10 +94,10 @@ export default function Home() {
       <CoinsList coinsData={filteredCoins} currency={currency} />
       <div className="flex-container flex-align-right">
         <div>
-          <button className="custom-btn btn-15" onClick={previousPage}>
+          <button className="custom-btn btn-2" onClick={previousPage}>
             Previous
           </button>
-          <button className="custom-btn btn-15" onClick={nextPage}>
+          <button className="custom-btn btn-2" onClick={nextPage}>
             Next
           </button>
         </div>

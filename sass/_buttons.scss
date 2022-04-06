@@ -28,23 +28,23 @@
   display: inline-block;
 }
 
-/* 3 */
-.btn-3 {
+/* 1 */
+.btn-1 {
   line-height: 39px;
   padding: 0;
 }
-.btn-3:hover {
+.btn-1:hover {
   background: transparent;
   color: rgb(235, 222, 222);
 }
-.btn-3 span {
+.btn-1 span {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
 }
-.btn-3:before,
-.btn-3:after {
+.btn-1:before,
+.btn-1:after {
   position: absolute;
   content: '';
   left: 0;
@@ -52,22 +52,22 @@
   background: rgb(235, 222, 222);
   transition: all 0.3s ease;
 }
-.btn-3:before {
+.btn-1:before {
   height: 0%;
   width: 2px;
 }
-.btn-3:after {
+.btn-1:after {
   width: 0%;
   height: 2px;
 }
-.btn-3:hover:before {
+.btn-1:hover:before {
   height: 100%;
 }
-.btn-3:hover:after {
+.btn-1:hover:after {
   width: 100%;
 }
-.btn-3 span:before,
-.btn-3 span:after {
+.btn-1 span:before,
+.btn-1 span:after {
   position: absolute;
   content: '';
   right: 0;
@@ -75,28 +75,28 @@
   background: rgb(235, 222, 222);
   transition: all 0.3s ease;
 }
-.btn-3 span:before {
+.btn-1 span:before {
   width: 2px;
   height: 0%;
 }
-.btn-3 span:after {
+.btn-1 span:after {
   width: 0%;
   height: 2px;
 }
-.btn-3 span:hover:before {
+.btn-1 span:hover:before {
   height: 100%;
 }
-.btn-3 span:hover:after {
+.btn-1 span:hover:after {
   width: 100%;
 }
 
 /* 15 */
-.btn-15 {
+.btn-2 {
   background: transparent;
   color: #fff;
   z-index: 1;
 }
-.btn-15:after {
+.btn-2:after {
   position: absolute;
   content: '';
   width: 0;
@@ -107,13 +107,13 @@
   background: rgb(40, 171, 125);
   transition: all 0.3s ease;
 }
-.btn-15:hover {
+.btn-2:hover {
   color: #000;
 }
-.btn-15:hover:after {
+.btn-2:hover:after {
   left: 0;
   width: 100%;
 }
-.btn-15:active {
+.btn-2:active {
   top: 2px;
 }

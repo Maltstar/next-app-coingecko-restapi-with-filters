@@ -40,15 +40,6 @@ export default function CoinsList({ coinsData }) {
             <td>{singleEntry.symbol.toUpperCase()}</td>
             <td>{singleEntry.current_price}</td>
             <td>
-              {singleEntry.price_change_percentage_24h_in_currency.toFixed(2)}
-            </td>
-            <td key={singleEntry.market_data}>
-              {singleEntry.price_change_percentage_7d_in_currency.toFixed(2)}
-            </td>
-            <td key={singleEntry.market_data}>
-              {singleEntry.price_change_percentage_30d_in_currency.toFixed(2)}
-            </td>
-            <td>
               <button id={singleEntry.id} className="custom-btn btn-3">
                 <Link href={`/coindetails/${singleEntry.id.toLowerCase()}`}>
                   <a>Details</a>
