@@ -28,15 +28,11 @@ const CirculatingSupply = ({ chartTitle, cryptos }) => {
     '#fcf5c7',
     '#adf7b6',
   ];
-  try {
-    cryptos.forEach((coin, index) => {
-      currencySymbols.push(coin.symbol);
-      circSupArray.push(coin.circulating_supply);
-      if (index == 14) throw new Error();
-    });
-  } catch (E) {
-    console.log('To much IPs in block.');
-  }
+
+  cryptos.forEach((coin) => {
+    currencySymbols.push(coin.symbol);
+    circSupArray.push(coin.circulating_supply);
+  });
 
   // colors are from: https://coolors.co/palettes/trending
   const circulatingSupply = {

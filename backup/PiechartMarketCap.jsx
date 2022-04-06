@@ -25,18 +25,12 @@ const Piechart = ({ chartTitle, cryptos }) => {
     '#fcf5c7',
     '#adf7b6',
   ];
-  try {
+
   cryptos.forEach((coin, index) => {
     //console.log(`marketcap_dominance:${index}`, coin.market_cap);
     currencySymbols.push(coin.symbol);
     marketCap.push(coin.market_cap);
-    if(index == 14) throw new Error
   });
-} catch (E) {
-    
-  console.log('To much IPs in block.');
-  
-}
 
   const marketCapDonut = {
     labels: currencySymbols,

@@ -29,11 +29,17 @@ const BarchartAthChange = ({ title, cryptos }) => {
     '#fcf5c7',
     '#adf7b6',
   ];
-
+  try {
   cryptos.forEach((coin, index) => {
     currencySymbols.push(coin.symbol);
     athChangeArray.push(coin.ath_change_percentage);
+    if(index == 14) throw new Error
   });
+} catch (E) {
+    
+  console.log('To much IPs in block.');
+  
+}
 
   //console.log(currencySymbols.toString());
 

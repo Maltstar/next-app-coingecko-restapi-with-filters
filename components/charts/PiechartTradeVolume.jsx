@@ -2,11 +2,6 @@ import Chart from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
 const DonutTradeVolume = ({ title, cryptos }) => {
-  /*
-  cryptos.forEach((value, index) => {
-    console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
-  }); */
-
   /** Run Array Data from cryptos-prop through forEach and push data to ne  */
   const currencySymbols = [];
   const totalVolArray = [];
@@ -29,11 +24,15 @@ const DonutTradeVolume = ({ title, cryptos }) => {
     '#fcf5c7',
     '#adf7b6',
   ];
-
-  cryptos.forEach((coin) => {
-    currencySymbols.push(coin.symbol);
-    totalVolArray.push(coin.total_volume);
-  });
+  try {
+    cryptos.forEach((coin, index) => {
+      currencySymbols.push(coin.symbol);
+      totalVolArray.push(coin.total_volume);
+      if (index == 14) throw new Error();
+    });
+  } catch (E) {
+    console.log('To much IPs in block.');
+  }
 
   // colors are from: https://coolors.co/palettes/trending
   const totalVolume = {

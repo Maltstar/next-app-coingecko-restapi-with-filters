@@ -14,7 +14,7 @@ import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
 
   try {
     const res = await fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?&page=1&per_page=14&vs_currency=usd&order=market_cap_desc&sparkline=false&price_change_percentage=24h%2C7d%2C30d`
+      `https://api.coingecko.com/api/v3/coins/markets?&page=1&per_page=14&vs_currency=usd&order=market_cap_desc&sparkline=false`
     );
     if (res.status !== 200) {
       throw new Error('Failed to fetch');
@@ -33,14 +33,14 @@ import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
 
 export default function Home() {
   const [search, setSearch] = useState('');
-
-  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [coinsData, setCryptos] = useState([]);
+  const [error, setError] = useState(null);
 
   // States and Actions
-  const initResults = 10;
+  const initResults = 14;
   const initPage = 1;
+
   const initCurrency = 'eur';
   const [count, setCount] = useState(initResults);
   const [page, setPage] = useState(initPage);
@@ -63,7 +63,6 @@ export default function Home() {
         (cryptoData) => {
           setIsLoaded(true);
           setCryptos(cryptoData);
-          //console.log(cryptoData);
         },
         (error) => {
           setIsLoaded(true);
@@ -72,11 +71,12 @@ export default function Home() {
       );
   }, [count, page, currency]);
 
+  // coinsfilter
   const filteredCoins = coinsData.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  //Searchbar Handler
+  //Searchbar
   const searchList = (event) => {
     event.preventDefault();
     setSearch(event.target.value.toLowerCase());
@@ -94,9 +94,12 @@ export default function Home() {
       <CoinsList coinsData={filteredCoins} currency={currency} />
       <div className="flex-container flex-align-right">
         <div>
-          <button className="custom-btn btn-2" onClick={previousPage}>
-            Previous
-          </button>
+          {page > 1 && (
+            <button className="custom-btn btn-2" onClick={previousPage}>
+              Previous
+            </button>
+          )}
+
           <button className="custom-btn btn-2" onClick={nextPage}>
             Next
           </button>

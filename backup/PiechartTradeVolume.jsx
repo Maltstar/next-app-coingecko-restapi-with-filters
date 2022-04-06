@@ -1,14 +1,15 @@
 import Chart from 'chart.js/auto';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
-const CirculatingSupply = ({ chartTitle, cryptos }) => {
-  /* cryptos.forEach((value, index) => {
+const DonutTradeVolume = ({ title, cryptos }) => {
+  /*
+  cryptos.forEach((value, index) => {
     console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
   }); */
 
   /** Run Array Data from cryptos-prop through forEach and push data to ne  */
   const currencySymbols = [];
-  const circSupArray = [];
+  const totalVolArray = [];
   const colorArray = [
     '#f4a261',
     '#264653',
@@ -28,38 +29,34 @@ const CirculatingSupply = ({ chartTitle, cryptos }) => {
     '#fcf5c7',
     '#adf7b6',
   ];
-  try {
-    cryptos.forEach((coin, index) => {
-      currencySymbols.push(coin.symbol);
-      circSupArray.push(coin.circulating_supply);
-      if (index == 14) throw new Error();
-    });
-  } catch (E) {
-    console.log('To much IPs in block.');
-  }
+
+  cryptos.forEach((coin) => {
+    currencySymbols.push(coin.symbol);
+    totalVolArray.push(coin.total_volume);
+  });
 
   // colors are from: https://coolors.co/palettes/trending
-  const circulatingSupply = {
-    type: 'bar',
+  const totalVolume = {
     labels: currencySymbols,
-    borderColor: '#adf7b6',
-
     datasets: [
       {
-        data: circSupArray,
+        data: totalVolArray,
         backgroundColor: colorArray,
       },
     ],
+    options: {
+      responsive: true,
+    },
   };
 
   return (
     <div className="flex-item">
       <div className="card">
-        <h2 className="text-centered">{chartTitle}</h2>
-        <Doughnut data={circulatingSupply} width={50} height={50} />
+        <h2 className="text-centered">{title}</h2>
+        <Doughnut data={totalVolume} width={50} height={50} />
       </div>
     </div>
   );
 };
 
-export default CirculatingSupply;
+export default DonutTradeVolume;
