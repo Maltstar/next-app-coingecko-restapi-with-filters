@@ -102,12 +102,10 @@ export default function Home() {
             cryptos={filteredCoins}
           />
         )}
-        {isLoaded && (
         <BarchartCirculatingSupply
           chartTitle="Umlaufmenge (Abs. Zahlen)"
           cryptos={filteredCoins}
         />
-        )}
       </div>
       <div className="flex-container">
         {isLoaded && (
