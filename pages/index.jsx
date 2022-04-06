@@ -38,7 +38,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   // States and Actions
-  const initResults = 14;
+  const initResults = 25;
   const initPage = 1;
 
   const initCurrency = 'eur';
