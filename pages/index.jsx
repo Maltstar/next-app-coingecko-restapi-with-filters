@@ -6,6 +6,7 @@ import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
 import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
 import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
+import CustomSpinner from '@/components/Customspinner';
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
@@ -52,70 +53,75 @@ export default function Home() {
       );
   }, [count, page, currency]);
 
-  // coinsfilter
-  const filteredCoins = coinsData.filter((coin) =>
-    coin.name.toLowerCase().includes(search.toLowerCase())
-  );
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <CustomSpinner />;
+  } else {
+    // Coinsfilter
+    const filteredCoins = coinsData.filter((coin) =>
+      coin.name.toLowerCase().includes(search.toLowerCase())
+    );
 
-  //Searchbar
-  const searchList = (event) => {
-    event.preventDefault();
-    setSearch(event.target.value.toLowerCase());
-  };
+    // Searchbar
+    const searchList = (event) => {
+      event.preventDefault();
+      setSearch(event.target.value.toLowerCase());
+    };
 
-  return (
-    <Layout title="Crypto Metrics">
-      <div className="flex-container">
-        <SearchBar type="text" placeholder="Search" onChange={searchList} />
-        <select
-          className="custom-btn btn-2"
-          value={count}
-          onChange={(e) => setCount(e.target.value)}
-        >
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-        </select>
-        <button className="custom-btn btn-2" onClick={changeCurrency}>
-          {currency ? <HiOutlineCurrencyEuro /> : <HiOutlineCurrencyDollar />}
-        </button>
-      </div>
-
-      <CoinsList coinsData={filteredCoins} currency={currency} />
-      <div className="flex-container flex-align-right">
-        <div>
-          {page > 1 && (
-            <button className="custom-btn btn-2" onClick={previousPage}>
-              <HiOutlineArrowNarrowLeft />
-            </button>
-          )}
-
-          <button className="custom-btn btn-2" onClick={nextPage}>
-            <HiOutlineArrowNarrowRight />
+    return (
+      <Layout title="Crypto Metrics">
+        <div className="flex-container">
+          <SearchBar type="text" placeholder="Search" onChange={searchList} />
+          <select
+            className="custom-btn btn-2"
+            value={count}
+            onChange={(e) => setCount(e.target.value)}
+          >
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          <button className="custom-btn btn-2" onClick={changeCurrency}>
+            {currency ? <HiOutlineCurrencyEuro /> : <HiOutlineCurrencyDollar />}
           </button>
         </div>
-      </div>
-      <div className="flex-container">
-        <PiechartMarketCap
-          chartTitle="Marktkapitalisierung (Abs. Zahlen)"
-          cryptos={filteredCoins}
-        />
-        <BarchartCirculatingSupply
-          chartTitle="Umlaufmenge (Abs. Zahlen)"
-          cryptos={filteredCoins}
-        />
-      </div>
-      <div className="flex-container">
-        <BarchartAthChange
-          title="ATH Veränderung in %"
-          cryptos={filteredCoins}
-        />
-        <PiechartTradeVolume
-          title="Aktuelles Handelsvolumen (Abs. Zahlen)"
-          cryptos={filteredCoins}
-        />
-      </div>
-    </Layout>
-  );
+        <CoinsList coinsData={filteredCoins} currency={currency} />
+        <div className="flex-container flex-align-right">
+          <div>
+            {page > 1 && (
+              <button className="custom-btn btn-2" onClick={previousPage}>
+                <HiOutlineArrowNarrowLeft />
+              </button>
+            )}
+
+            <button className="custom-btn btn-2" onClick={nextPage}>
+              <HiOutlineArrowNarrowRight />
+            </button>
+          </div>
+        </div>
+        <div className="flex-container">
+          <PiechartMarketCap
+            chartTitle="Marktkapitalisierung (Abs. Zahlen)"
+            cryptos={filteredCoins}
+          />
+          <BarchartCirculatingSupply
+            chartTitle="Umlaufmenge (Abs. Zahlen)"
+            cryptos={filteredCoins}
+          />
+        </div>
+        <div className="flex-container">
+          <BarchartAthChange
+            title="ATH Veränderung in %"
+            cryptos={filteredCoins}
+          />
+          <PiechartTradeVolume
+            title="Aktuelles Handelsvolumen (Abs. Zahlen)"
+            cryptos={filteredCoins}
+          />
+        </div>
+      </Layout>
+    );
+  }
 }

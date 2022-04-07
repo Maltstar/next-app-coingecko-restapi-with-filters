@@ -9,22 +9,22 @@ const PolarchartDetail = ({ chartTitle, singleCryptoStats }) => {
     labels: [''],
     datasets: [
       {
-        label: 'coingecko_score',
+        label: 'Coingecko',
         data: [singleCryptoStats.coingecko_score],
         backgroundColor: '#79addc',
       },
       {
-        label: 'developer_score',
+        label: 'Developer score',
         data: [singleCryptoStats.developer_score],
         backgroundColor: '#ffc09f',
       },
       {
-        label: 'community_score',
+        label: 'Community',
         data: [singleCryptoStats.community_score],
         backgroundColor: '#ffee93',
       },
       {
-        label: 'liquidity_score',
+        label: 'Liquidity',
         data: [singleCryptoStats.liquidity_score],
         backgroundColor: '#fcf5c7',
       },
