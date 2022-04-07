@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import SearchBar from '@/components/layout/SearchBar';
 import GridCoinlist from '@/components/GridCoinsList';
@@ -9,6 +10,10 @@ import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
 
 export default function Home() {
+
+  const router = useRouter();
+
+
   const [search, setSearch] = useState('');
 
   const [error, setError] = useState(null);
@@ -75,6 +80,8 @@ export default function Home() {
     setSearch(event.target.value.toLowerCase());
   };
 
+
+
   console.log('isLoaded return');
   console.log(isLoaded);
   return (
@@ -88,7 +95,7 @@ export default function Home() {
       >
         {currency ? '€' : '$'}
       </button>
-      {isLoaded && <GridCoinlist coinsData={filteredCoins} />}
+      {isLoaded && <GridCoinlist coinsData={filteredCoins} currency={currency}/>}
       <div className="flex-container">
         {isLoaded && (
           <PiechartMarketCap

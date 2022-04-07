@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
 import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
+import Link from 'next/link';
 
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
@@ -55,6 +56,19 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
               __html: description.replace(/href/g, "target='_blank' href"),
             }}
           />
+          <p>
+            <Link
+              href={`https://coinmarketcap.com/currencies/${coin.id.toLowerCase()}/`}
+            >
+              <a target="_blank">Coinmarketcap</a>
+            </Link>
+            <br />
+            <Link
+              href={`https://www.binance.com/en/trade/${coin.symbol.toUpperCase()}_BUSD`}
+            >
+              <a target="_blank">Binance</a>
+            </Link>
+          </p>
           <br />
           <div>
             Offizielle Website:{' '}
