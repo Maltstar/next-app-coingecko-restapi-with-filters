@@ -81,20 +81,14 @@ export default function Home() {
     <Layout title="Crypto Metrics">
       <SearchBar type="text" placeholder="Search" onChange={searchList} />
       Currency:{' '}
-      <button className="custom-btn btn-15" onClick={changeCurrency}>
+      <button
+        className="custom-btn btn-15"
+        onClick={changeCurrency}
+        style={{ color: '#fff' }}
+      >
         {currency ? '€' : '$'}
       </button>
       {isLoaded && <GridCoinlist coinsData={filteredCoins} />}
-      <div className="flex-container flex-align-right">
-        <div>
-          <button className="custom-btn btn-15" onClick={previousPage}>
-            Previous
-          </button>
-          <button className="custom-btn btn-15" onClick={nextPage}>
-            Next
-          </button>
-        </div>
-      </div>
       <div className="flex-container">
         {isLoaded && (
           <PiechartMarketCap
@@ -103,10 +97,10 @@ export default function Home() {
           />
         )}
         {isLoaded && (
-        <BarchartCirculatingSupply
-          chartTitle="Umlaufmenge (Abs. Zahlen)"
-          cryptos={filteredCoins}
-        />
+          <BarchartCirculatingSupply
+            chartTitle="Umlaufmenge (Abs. Zahlen)"
+            cryptos={filteredCoins}
+          />
         )}
       </div>
       <div className="flex-container">
