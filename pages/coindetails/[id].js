@@ -57,7 +57,7 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
             }}
           />
           <p>
-            <div class="simple-divider">
+            <div className="simple-divider">
               {' '}
               <h4>
                 Weiterführende Informationen auf:{' '}
