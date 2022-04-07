@@ -1,4 +1,4 @@
-NextJS App to consume Coingecko API for Cryptocurrency Metrics.
+NextJS App to consume Coingecko API and output Cryptocurrency Metrics.
 
 ## How to run the Project
 
@@ -18,6 +18,10 @@ The Project aims to gather some insights through visualizing CryptoData from (op
 More about the: [Coingecko-API](https://www.coingecko.com/de/api/documentation?)
 
 Data has been visualized via [Chartjs](https://www.chartjs.org/docs/latest/getting-started/installation.html)
+
+Icons are implemented via [React-Icons](https://react-icons.github.io/react-icons/)
+
+Colorschemes are taken from: [https://coolors.co](https://coolors.co/palettes/trending)
 
 ## Deployed on Vercel
 

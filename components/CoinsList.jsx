@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import Chart from 'chart.js/auto';
 
-// ChartJS Modifications here. Apply globally
+// ChartJS Modifications need to be applied here.
 Chart.defaults.color = '#fff';
 Chart.defaults.responsive = true;
-
-const myLoader = ({ src, width, quality }) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
-};
 
 export default function CoinsList({ coinsData, currency }) {
   return (

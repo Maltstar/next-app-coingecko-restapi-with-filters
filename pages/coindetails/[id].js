@@ -57,17 +57,23 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
             }}
           />
           <p>
-            <Link
-              href={`https://coinmarketcap.com/currencies/${coin.id.toLowerCase()}/`}
-            >
-              <a target="_blank">Coinmarketcap</a>
-            </Link>
-            <br />
-            <Link
-              href={`https://www.binance.com/en/trade/${coin.symbol.toUpperCase()}_BUSD`}
-            >
-              <a target="_blank">Binance</a>
-            </Link>
+            <h3>
+              Weiterführende Informationen auf:{' '}
+              <Link
+                href={`https://coinmarketcap.com/currencies/${coin.id.toLowerCase()}/`}
+              >
+                <a target="_blank">Coinmarketcap</a>
+              </Link>
+            </h3>
+
+            <h3>
+              Handel über Binance und Möglichkeit der Techischen Analyse:{' '}
+              <Link
+                href={`https://www.binance.com/en/trade/${coin.symbol.toUpperCase()}_BUSD`}
+              >
+                <a target="_blank">Binance</a>
+              </Link>
+            </h3>
           </p>
           <br />
           <div>

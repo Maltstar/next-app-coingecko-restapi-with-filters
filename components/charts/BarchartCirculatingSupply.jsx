@@ -1,12 +1,10 @@
 import Chart from 'chart.js/auto';
 import { Bar, Doughnut } from 'react-chartjs-2';
 
+/** Run Array Data from cryptos-prop through forEach and push data to respective declared variable.
+ * colors are from: https://coolors.co/palettes/trending
+ */
 const CirculatingSupply = ({ chartTitle, cryptos }) => {
-  /* cryptos.forEach((value, index) => {
-    console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
-  }); */
-
-  /** Run Array Data from cryptos-prop through forEach and push data to ne  */
   const currencySymbols = [];
   const circSupArray = [];
   const colorArray = [
@@ -38,7 +36,6 @@ const CirculatingSupply = ({ chartTitle, cryptos }) => {
     console.log('To much IPs in block.');
   }
 
-  // colors are from: https://coolors.co/palettes/trending
   const circulatingSupply = {
     type: 'bar',
     labels: currencySymbols,

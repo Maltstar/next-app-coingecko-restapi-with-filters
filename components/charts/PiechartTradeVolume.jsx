@@ -1,10 +1,11 @@
 import Chart from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
+/** Run Array Data from cryptos-prop through forEach and push data to respective declared variable.
+ * colors are from: https://coolors.co/palettes/trending
+ */
+
 const DonutTradeVolume = ({ title, cryptos }) => {
-  /** Run Array Data from cryptos-prop through forEach and push data to ne
-   * colors are from: https://coolors.co/palettes/trending
-   */
   const currencySymbols = [];
   const totalVolArray = [];
   const colorArray = [

@@ -1,13 +1,10 @@
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
+/** Run Array Data from cryptos-prop through forEach and push data to respective declared variable.
+ * colors are from: https://coolors.co/palettes/trending
+ */
 const BarchartAthChange = ({ title, cryptos }) => {
-  /*
-  cryptos.forEach((value, index) => {
-    console.log(`marketcap_dominance:${index}`, book.market_cap_dominance);
-  }); */
-
-  /** Run Array Data from cryptos-prop through forEach and push data to ne  */
   const currencySymbols = [];
   const athChangeArray = [];
   const colorArray = [
@@ -30,20 +27,17 @@ const BarchartAthChange = ({ title, cryptos }) => {
     '#adf7b6',
   ];
   try {
-  cryptos.forEach((coin, index) => {
-    currencySymbols.push(coin.symbol);
-    athChangeArray.push(coin.ath_change_percentage);
-    if(index == 14) throw new Error
-  });
-} catch (E) {
-    
-  console.log('To much IPs in block.');
-  
-}
+    cryptos.forEach((coin, index) => {
+      currencySymbols.push(coin.symbol);
+      athChangeArray.push(coin.ath_change_percentage);
+      if (index == 14) throw new Error();
+    });
+  } catch (E) {
+    console.log('To much IPs in block.');
+  }
 
   //console.log(currencySymbols.toString());
 
-  // colors are from: https://coolors.co/palettes/trending
   const athChange = {
     labels: currencySymbols,
     datasets: [

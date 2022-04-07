@@ -10,9 +10,7 @@ import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
 
 export default function Home() {
-
   const router = useRouter();
-
 
   const [search, setSearch] = useState('');
 
@@ -80,13 +78,10 @@ export default function Home() {
     setSearch(event.target.value.toLowerCase());
   };
 
-
-
   console.log('isLoaded return');
   console.log(isLoaded);
   return (
     <Layout title="Crypto Metrics">
-      <SearchBar type="text" placeholder="Search" onChange={searchList} />
       Currency:{' '}
       <button
         className="custom-btn btn-15"
@@ -95,7 +90,9 @@ export default function Home() {
       >
         {currency ? '€' : '$'}
       </button>
-      {isLoaded && <GridCoinlist coinsData={filteredCoins} currency={currency}/>}
+      {isLoaded && (
+        <GridCoinlist coinsData={filteredCoins} currency={currency} />
+      )}
       <div className="flex-container">
         {isLoaded && (
           <PiechartMarketCap

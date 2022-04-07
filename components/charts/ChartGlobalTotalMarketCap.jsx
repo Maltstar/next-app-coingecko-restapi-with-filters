@@ -1,8 +1,10 @@
 import Chart from 'chart.js/auto';
 import { Pie } from 'react-chartjs-2';
 
+/** Run Array Data from cryptos-prop through forEach and push data to respective declared variable.
+ * colors are from: https://coolors.co/palettes/trending
+ */
 const ChartGlobalTotalMarketCap = ({ chartTitle, globalCryptoStats }) => {
-  // HelperVariable
   const totalMarketcap = globalCryptoStats.data.total_market_cap;
 
   const namesArray = [];
@@ -37,7 +39,6 @@ const ChartGlobalTotalMarketCap = ({ chartTitle, globalCryptoStats }) => {
     marketCapArray.push(value);
   }
 
-  // colors are from: https://coolors.co/palettes/trending
   const globalTotalMarketCap = {
     labels: namesArray,
     datasets: [
