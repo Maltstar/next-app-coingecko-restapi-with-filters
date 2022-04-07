@@ -5,6 +5,10 @@ import Chart from 'chart.js/auto';
 Chart.defaults.color = '#fff';
 Chart.defaults.responsive = true;
 
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
+
 export default function CoinsList({ coinsData, currency }) {
   return (
     <div className="table-card">
@@ -27,7 +31,7 @@ export default function CoinsList({ coinsData, currency }) {
                   src={singleEntry.image}
                   width={25}
                   height={25}
-                  alt="coin"
+                  alt={`coinname-${singleEntry.id}`}
                 />
               </td>
               <td>{singleEntry.name}</td>
