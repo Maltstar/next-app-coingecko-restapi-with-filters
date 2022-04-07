@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Chart from 'chart.js/auto';
 
 // ChartJS Modifications here. Apply globally
-Chart.defaults.color = 'rgba(75,192,192,1)';
+Chart.defaults.color = '#fff';
 Chart.defaults.responsive = true;
 
 export default function CoinsList({ coinsData, currency }) {
