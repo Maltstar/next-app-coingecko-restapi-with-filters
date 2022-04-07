@@ -2,7 +2,6 @@ import Layout from '@/components/Layout';
 import BarchartGeneralScore from '@/components/charts/BarchartGeneralScore';
 import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
-import RadarchartDetail from '@/components/charts/RadarchartGeneralScore';
 
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
@@ -29,7 +28,6 @@ export async function getServerSideProps(context) {
 const Coindetails = ({ coin, priceChart, priceChange }) => {
   const description = coin.description.en;
   const isGenesisDate = coin.genesis_date;
-  const developerData = coin.developer_data;
   const isHomepage = coin.links.homepage;
 
   //Percentage Change in Percent
@@ -38,8 +36,8 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
   const price30Days = priceChange.market_data.price_change_percentage_30d;
 
   // Sanitize String
-  const str = isHomepage.toString();
-  const isHomepageSanitized = str.substring(0, str.length - 2);
+  const toSanitize = isHomepage.toString();
+  const isHomepageSanitized = toSanitize.substring(0, toSanitize.length - 2);
 
   const prices = priceChart.prices;
 
@@ -70,7 +68,6 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
           </div>
         </ul>
       </div>
-
       <div className="flex-container">
         <BarchartGeneralScore
           chartTitle="General Score in %"
@@ -82,7 +79,6 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
           singleCryptoStats={coin}
         />
       </div>
-
       <div className="flex-column">
         <div className="simple-divider">
           <h2 className="text-center">

@@ -25,10 +25,6 @@ const RadarchartDetail = ({ chartTitle, singleCryptoStats }) => {
     '#adf7b6',
   ];
 
-  /*  singleCryptoStats.forEach((coin) => {
-    currencySymbols.push(coin.symbol);
-    scoreMetricsArray.push(coin.coingecko_score);
-  }); */
   //console.log(singleCryptoStats.developer_score);
 
   const scoreMetrics = {

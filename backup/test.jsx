@@ -6,12 +6,40 @@ import PiechartMarketCap from '@/components/charts/PiechartMarketCap';
 import BarchartCirculatingSupply from '@/components/charts/BarchartCirculatingSupply';
 import BarchartAthChange from '@/components/charts/BarchartAthChange';
 import PiechartTradeVolume from '@/components/charts/PiechartTradeVolume';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
   HiOutlineCurrencyDollar,
   HiOutlineCurrencyEuro,
 } from 'react-icons/hi';
+
+// Used Icons Library from https://react-icons.github.io/react-icons
+
+// Call API Endpoint via ServerSideProps
+/* export const getServerSideProps = async ({ query }) => {
+  //first page is default
+  const page = query.page || 1;
+  let coinsData = null;
+
+  try {
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/markets?&page=1&per_page=14&vs_currency=usd&order=market_cap_desc&sparkline=false`
+    );
+    if (res.status !== 200) {
+      throw new Error('Failed to fetch');
+    }
+    coinsData = await res.json();
+  } catch (err) {
+    coinsData = { error: { message: err.message } };
+  }
+
+  return {
+    props: {
+      coinsData,
+    },
+  };
+}; */
 
 export default function Home() {
   const [search, setSearch] = useState('');
@@ -30,6 +58,9 @@ export default function Home() {
   const previousPage = () => setPage((currentCount) => currentCount - 1);
   const changeCurrency = () =>
     setCurrency((currentCurrency) => !currentCurrency);
+
+  const display15 = () => setCount((currentCount) => currentCount - 10);
+  const display25 = () => setCount(count + 10);
 
   // Call API Endpoint via useEffect
   useEffect(() => {

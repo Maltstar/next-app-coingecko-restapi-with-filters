@@ -2,7 +2,9 @@ import Chart from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
 const DonutTradeVolume = ({ title, cryptos }) => {
-  /** Run Array Data from cryptos-prop through forEach and push data to ne  */
+  /** Run Array Data from cryptos-prop through forEach and push data to ne
+   * colors are from: https://coolors.co/palettes/trending
+   */
   const currencySymbols = [];
   const totalVolArray = [];
   const colorArray = [
@@ -34,7 +36,6 @@ const DonutTradeVolume = ({ title, cryptos }) => {
     console.log('To much IPs in block.');
   }
 
-  // colors are from: https://coolors.co/palettes/trending
   const totalVolume = {
     labels: currencySymbols,
     datasets: [
