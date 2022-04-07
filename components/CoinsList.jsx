@@ -21,7 +21,7 @@ export default function CoinsList({ coinsData, currency }) {
         </thead>
         <tbody>
           {coinsData.map((singleEntry) => (
-            <tr key={singleEntry.id + 1}>
+            <tr key={singleEntry.id}>
               <td>
                 <img
                   src={singleEntry.image}
