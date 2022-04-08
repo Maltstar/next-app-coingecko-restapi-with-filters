@@ -33,3 +33,28 @@ body {
   margin-right: auto;
   padding: 0 1rem;
 }
+
+/* Spinner */
+.loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #34ab7d;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  animation: spin 1s linear infinite;
+}
+.place-center {
+  margin: auto;
+  width: 50%;
+  height: 60%;
+  padding: 20%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

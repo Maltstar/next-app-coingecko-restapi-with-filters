@@ -56,25 +56,27 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
               __html: description.replace(/href/g, "target='_blank' href"),
             }}
           />
-          <p>
-            <h3>
+
+          <div className="simple-divider">
+            {' '}
+            <h4>
               Weiterführende Informationen auf:{' '}
               <Link
                 href={`https://coinmarketcap.com/currencies/${coin.id.toLowerCase()}/`}
               >
                 <a target="_blank">Coinmarketcap</a>
               </Link>
-            </h3>
-
-            <h3>
+            </h4>
+            <h4>
               Handel über Binance und Möglichkeit der Techischen Analyse:{' '}
               <Link
                 href={`https://www.binance.com/en/trade/${coin.symbol.toUpperCase()}_BUSD`}
               >
                 <a target="_blank">Binance</a>
               </Link>
-            </h3>
-          </p>
+            </h4>
+          </div>
+
           <br />
           <div>
             Offizielle Website:{' '}
@@ -90,7 +92,7 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
       </div>
       <div className="flex-container">
         <BarchartGeneralScore
-          chartTitle="General Score in %"
+          chartTitle="Reputationscore in %"
           singleCryptoStats={coin}
         />
 
@@ -110,7 +112,7 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
       </div>
       <div className="flex-container">
         <LineChart30DayPrices
-          chartTitle="Preisentwicklung: 30 Tage"
+          chartTitle="Tageschart der letzten 30 Tage"
           priceChart={priceChart}
         />
       </div>
