@@ -77,7 +77,11 @@ export default function Home() {
           <option value="25">25</option>
           <option value="50">50</option>
         </select>
-        <button className="custom-btn btn-2" onClick={changeCurrency}>
+        <button
+          className="custom-btn btn-2"
+          onClick={changeCurrency}
+          aria-label="Währungsumrechner"
+        >
           {currency ? <HiOutlineCurrencyEuro /> : <HiOutlineCurrencyDollar />}
         </button>
       </div>
@@ -86,12 +90,20 @@ export default function Home() {
       <div className="flex-container flex-align-right">
         <div>
           {page > 1 && (
-            <button className="custom-btn btn-2" onClick={previousPage}>
+            <button
+              className="custom-btn btn-2"
+              onClick={previousPage}
+              aria-label="Vorherige Seite"
+            >
               <HiOutlineArrowNarrowLeft />
             </button>
           )}
 
-          <button className="custom-btn btn-2" onClick={nextPage}>
+          <button
+            className="custom-btn btn-2"
+            onClick={nextPage}
+            aria-label="Nächste Seite"
+          >
             <HiOutlineArrowNarrowRight />
           </button>
         </div>
