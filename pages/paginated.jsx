@@ -91,7 +91,7 @@ export default function Home() {
         {currency ? '€' : '$'}
       </button>
       {isLoaded && (
-        <GridCoinlist coinsData={filteredCoins} currency={currency} />
+        <GridCoinlist coinsData={filteredCoins} currency={currency} page={page} count={count} />
       )}
       <div className="flex-container">
         {isLoaded && (
