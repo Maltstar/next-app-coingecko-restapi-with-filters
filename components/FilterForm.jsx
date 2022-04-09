@@ -1,7 +1,7 @@
 export default function FilterForm({ searchTerm, setSearchTerm }) {
   return (
     <form className="filter" onSubmit={(e) => e.preventDefault()}>
-      <label htmlFor="search">Filmtitel</label>
+      <label htmlFor="search"></label>
       <input
         id="search"
         type="search"
