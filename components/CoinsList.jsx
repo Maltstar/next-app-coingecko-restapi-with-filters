@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Chart from 'chart.js/auto';
+import Image from 'next/image';
 
 // ChartJS Modifications need to be applied here.
 Chart.defaults.color = '#fff';
@@ -23,7 +24,7 @@ export default function CoinsList({ coinsData, currency }) {
           {coinsData.map((singleEntry) => (
             <tr key={singleEntry.id}>
               <td>
-                <img
+                <Image
                   src={singleEntry.image}
                   width={25}
                   height={25}

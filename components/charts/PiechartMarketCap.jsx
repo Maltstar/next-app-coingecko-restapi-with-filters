@@ -31,10 +31,10 @@ const Piechart = ({ chartTitle, cryptos }) => {
       //console.log(`marketcap_dominance:${index}`, coin.market_cap);
       currencySymbols.push(coin.symbol);
       marketCap.push(coin.market_cap);
-      if (index == 14) throw new Error();
+     // if (index == 14) throw new Error();
     });
   } catch (E) {
-    console.log('To much IPs in block.');
+    console.log('To much IPs in block.',E);
   }
 
   const marketCapDonut = {

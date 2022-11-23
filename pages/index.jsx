@@ -69,8 +69,10 @@ export default function Home() {
       setSearch(event.target.value.toLowerCase());
     };
 
+    const description = "Cryptos listing with metrics and charts powered by api coin gecko V3";
+
     return (
-      <Layout title="Crypto Metrics">
+      <Layout title="Crypto Metrics" description={description}>
         <div className="flex-container">
           <SearchBar type="text" placeholder="Search" onChange={searchList} />
           <select

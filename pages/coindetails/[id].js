@@ -4,6 +4,7 @@ import ChartDeveloperData from '@/components/charts/ChartDeveloperData';
 import LineChart30DayPrices from '@/components/charts/LineChart30DayPrices';
 import Link from 'next/link';
 
+
 // API Fetch Data for Single Coin - general Stuff
 export async function getServerSideProps(context) {
   const { id } = context.query;
@@ -41,12 +42,14 @@ const Coindetails = ({ coin, priceChart, priceChange }) => {
   const isHomepageSanitized = toSanitize.substring(0, toSanitize.length - 2);
 
   const prices = priceChart.prices;
-
+  const description_page = `${coin.id} Details with history, link to official website, coinmarketcap, price change, 30 days chart, reputation score and repository statistics`;
   return (
     <Layout
       title={`${coin.id} | Genesis-Date: ${
         isGenesisDate ? isGenesisDate : 'N/A'
       }`}
+    description={description_page}
+    language="en"
     >
       <div className="flex-container">
         <ul>

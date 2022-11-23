@@ -3,10 +3,12 @@ $white: #fffffe;
 $text: #a7a9be;
 $orange: #ff8906;
 $black: #0f0e17;
-$medium-red: #e53170;
+//$medium-red: #e53170;
+$pink:#F5A3BD;
 $light-red: #f25f4c;
 
 :root {
-  --link-color: #{$medium-red};
+  //--link-color: #{$medium-red};
+  --link-color: #{$pink};
   --hover-color: #{$orange};
 }

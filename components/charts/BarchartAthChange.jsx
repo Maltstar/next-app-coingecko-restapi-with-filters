@@ -30,10 +30,10 @@ const BarchartAthChange = ({ title, cryptos }) => {
     cryptos.forEach((coin, index) => {
       currencySymbols.push(coin.symbol);
       athChangeArray.push(coin.ath_change_percentage);
-      if (index == 14) throw new Error();
+      //if (index == 14) throw new Error();
     });
   } catch (E) {
-    console.log('To much IPs in block.');
+    console.log('To much IPs in block.',E);
   }
 
   //console.log(currencySymbols.toString());

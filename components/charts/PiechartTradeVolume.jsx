@@ -31,10 +31,10 @@ const DonutTradeVolume = ({ title, cryptos }) => {
     cryptos.forEach((coin, index) => {
       currencySymbols.push(coin.symbol);
       totalVolArray.push(coin.total_volume);
-      if (index == 14) throw new Error();
+      //if (index == 14) throw new Error();
     });
   } catch (E) {
-    console.log('To much IPs in block.');
+    console.log('To much IPs in block.',E);
   }
 
   const totalVolume = {
