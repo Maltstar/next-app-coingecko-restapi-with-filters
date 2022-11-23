@@ -66,7 +66,7 @@ Colorschemes are taken from: [https://coolors.co](https://coolors.co/palettes/tr
 Deployment was created with [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
 ## Live Demo
-https://next-app-coingecko-restapi-with-filters.vercel.app/
+https://next-app-coingecko-restapi-with-filters.vercel.app/paginated
 
 ## Further possible improvements
 - Add Charts associated to the coins displayed on the page of the grid view
