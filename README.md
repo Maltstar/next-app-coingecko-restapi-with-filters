@@ -31,8 +31,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Project Description
 
-The Project aims to gather some insights through visualizing CryptoData from (open) Coingecko Endpoints and gain experience with React.
+This is a fork from the original project https://github.com/LohremYpsum realised in collaboration with LohremYpsum and mfgich https://github.com/mfgich.
+
+The original project aimed to gather some insights through visualizing CryptoData from (open) Coingecko Endpoints and gain experience with React.
 More about the: [Coingecko-API](https://www.coingecko.com/de/api/documentation?)
+
+I was responsible for the gridview "GRIDANSICHT".
+
+Now with this fork, some functionnalities were added to make it more user friendly, adding some filters/sorting functionalities and the possibility to load all coins at once on the grid view.
+
 
 There are 2 pages to view the different coins with their metrics:
  - the first with:
