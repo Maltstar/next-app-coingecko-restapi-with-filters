@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Project Description
 
-This is a fork from the original project https://github.com/LohremYpsum realised in collaboration with LohremYpsum and mfgich https://github.com/mfgich.
+This is a fork from the original project https://github.com/LohremYpsum/next-app-coingecko-restapi  realised in collaboration with LohremYpsum https://github.com/LohremYpsum and mfgich https://github.com/mfgich.
 
 The original project aimed to gather some insights through visualizing CryptoData from (open) Coingecko Endpoints and gain experience with React.
 More about the: [Coingecko-API](https://www.coingecko.com/de/api/documentation?)
