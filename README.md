@@ -42,12 +42,12 @@ Now with this fork, some functionnalities were added to make it more user friend
 
 
 There are 2 pages to view the different coins with their metrics:
- - the first with:
+ - the 1st with:
     + a cryptos listing implemented by a standard array with pagination
     + entries to be displayed per page (10-250)
     + with associated charts/details 
     
- - the second with:
+ - the 2nd with:
     + a cryptos listing implemented via grid with filters
     + entries to be displayed per page (10-5000) with pagination
     + button to load all coins at once (250*53=13250), (can be usefull to sort a lot cryptos
