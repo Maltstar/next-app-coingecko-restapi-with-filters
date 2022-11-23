@@ -42,12 +42,12 @@ Now with this fork, some functionnalities were added to make it more user friend
 
 
 There are 2 pages to view the different coins with their metrics:
- - the 1st with:
+ - the 1st page "STARTSEITE" with:
     + a cryptos listing implemented by a standard array with pagination
     + entries to be displayed per page (10-250)
     + with associated charts/details 
     
- - the 2nd with:
+ - the 2nd "GRIDANSICHT" with:
     + a cryptos listing implemented via grid with filters
     + entries to be displayed per page (10-5000) with pagination
     + button to load all coins at once (250*53=13250), (can be usefull to sort a lot cryptos
@@ -64,3 +64,6 @@ Colorschemes are taken from: [https://coolors.co](https://coolors.co/palettes/tr
 ## Deployed on Vercel
 
 Deployment was created with [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+## Live Demo
+https://next-app-coingecko-restapi-with-filters.vercel.app/
