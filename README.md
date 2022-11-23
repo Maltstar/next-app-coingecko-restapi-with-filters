@@ -67,3 +67,7 @@ Deployment was created with [Vercel](https://vercel.com/new?utm_medium=default-t
 
 ## Live Demo
 https://next-app-coingecko-restapi-with-filters.vercel.app/
+
+## Further possible improvements
+- Add Charts associated to the coins displayed on the page of the grid view
+- improving performance for mobile device using lasy loading
